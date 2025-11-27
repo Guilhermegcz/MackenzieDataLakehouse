@@ -1,14 +1,14 @@
 version: '3.8'
 
 services:
-  # Define o serviço que chamaremos de 'pyspark-data-transform-load'
-  pyspark-data-transform-load:
+  # Define o serviço que chamaremos de 'pyspark-transform'
+  pyspark-transform:
     # 1. Usa a imagem do Dockerfile local 
     build: .
     # 2. OU usa a imagem oficial diretamente (mais rápido se não houver customização), porem customizamos o usuario
     # image: jupyter/pyspark-notebook
     
-    container_name: pyspark_trasform_load_container
+    container_name: pyspark_transform_container
     
     # Mapeia as portas
     ports:
@@ -19,14 +19,14 @@ services:
     volumes:
       # Cria um diretório 'notebooks' na raiz do seu projeto local
       # e o mapeia para o WORKDIR do contêiner.
-      - ./notebooks:/home/gui/work
+      - ./notebooks:/home/guilherme/work
       # Mapeia um diretório 'data' para guardar os arquivos Parquet/ORC
-      - ./data:/home/gui/data
+      - ./data:/home/guilherme/data
 
     # Variáveis de ambiente
     environment:
       # Token de acesso ao Jupyter (opcional, mas recomendado para segurança)
-      - JUPYTER_TOKEN=gui1234
+      - JUPYTER_TOKEN=guilherme1234
       # Configurações do Spark (opcional, mas bom para aumentar a memória para testes)
       - SPARK_DRIVER_MEMORY=4g
       - SPARK_EXECUTOR_MEMORY=4g
