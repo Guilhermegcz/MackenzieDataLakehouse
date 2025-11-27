@@ -21,7 +21,7 @@ services:
       # e o mapeia para o WORKDIR do contêiner.
       - ./notebooks:/home/guilherme/work
       # Mapeia um diretório 'data' para guardar os arquivos Parquet/ORC
-      - ./data:/home/guilherme/data
+      - ./data:/home/guilherme/work/data
 
     # Variáveis de ambiente
     environment:
